@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -38,11 +38,12 @@
             padding: 10px;
             cursor: pointer;
             font-size: 16px;
+            margin-right: 10px;
         }
 
-            button:hover {
-                background-color: #ff1493;
-            }
+        button:hover {
+            background-color: #ff1493;
+        }
 
         textarea {
             width: 100%;
@@ -71,7 +72,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Waseem's daily diary</h1>
+        <h1>Waseem's Daily Diary</h1>
         <textarea id="entryText" placeholder="Write your diary entry here..."></textarea>
         <button onclick="saveEntry()">Save Entry</button>
         <button onclick="viewEntries()">View Entries</button>
@@ -88,7 +89,7 @@
         }
 
         function saveEntry() {
-            const entryText = document.getElementById('entryText').value;
+            const entryText = document.getElementById('entryText').value.trim();
             if (!entryText) {
                 alert('Please enter some text before saving.');
                 return;
@@ -117,19 +118,19 @@
 
             entries.forEach(entry => {
                 const entryDiv = document.createElement('div');
-            entryDiv.classList.add('entry');
+                entryDiv.classList.add('entry');
 
-            const dateSpan = document.createElement('div');
-            dateSpan.classList.add('entry-date');
-            dateSpan.textContent = entry.date;
+                const dateSpan = document.createElement('div');
+                dateSpan.classList.add('entry-date');
+                dateSpan.textContent = entry.date;
 
-            const textDiv = document.createElement('div');
-            textDiv.textContent = entry.text;
+                const textDiv = document.createElement('div');
+                textDiv.textContent = entry.text;
 
-            entryDiv.appendChild(dateSpan);
-            entryDiv.appendChild(textDiv);
-            entriesContainer.appendChild(entryDiv);
-        });
+                entryDiv.appendChild(dateSpan);
+                entryDiv.appendChild(textDiv);
+                entriesContainer.appendChild(entryDiv);
+            });
         }
     </script>
 </body>
